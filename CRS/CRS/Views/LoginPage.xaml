@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:CRS.Views"
+             xmlns:material3="clr-namespace:Plugin.MaterialDesignControls.Material3;assembly=Plugin.MaterialDesignControls"
+             RootViewModel="{Binding}"
+             ControlTemplate="{StaticResource BaseTemplate}"
+             mc:Ignorable="d"
+             x:Class="CRS.Views.LoginPage"
+             Shell.NavBarIsVisible="False"> 
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="1" Grid.Column="1" Padding="10,0,10,0" VerticalOptions="Center">
+                <ContentView VerticalOptions="FillAndExpand">
+                    <Image Source="hust_logo.png" VerticalOptions="Center"/>
+                </ContentView>
+                <material3:MaterialEntry
+                    Margin="0,15,0,15"
+                    LabelText="Username *"
+                    LabelSize="14"
+                    MaxLength="50"
+                    Text="{Binding UserName}"
+                    TabIndex="1"
+                    ReturnType="Next" />
+                <material3:MaterialEntry
+                    Margin="0,0,0,15"
+                    LabelText="Password *"
+                    LabelSize="14"
+                    MaxLength="50"
+                    Text="{Binding PassWord}"
+                    TabIndex="2"
+                    ReturnType="Next"
+                    IsPassword="True"/>
+                <material3:MaterialButton
+                    Text="Login" 
+                    Command="{Binding LoginCommand}"
+                    BackgroundColor="{StaticResource Primary}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</local:BasePage>
