@@ -45,6 +45,7 @@
                     IsPassword="True"/>
                 <material3:MaterialButton
                     Text="Login" 
+                    CornerRadius="5"
                     Command="{Binding LoginCommand}"
                     BackgroundColor="{StaticResource Primary}" />
             </StackLayout>

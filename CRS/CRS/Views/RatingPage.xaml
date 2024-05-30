@@ -51,6 +51,7 @@
                 </material3:MaterialCard>
                 <material3:MaterialButton
                     Text="Submit" 
+                    CornerRadius="5"
                     Command="{Binding OpenWebCommand}"
                     BackgroundColor="{StaticResource Primary}" />
             </StackLayout>
