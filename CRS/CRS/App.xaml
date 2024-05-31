@@ -22,7 +22,7 @@
                             </VisualState>
                             <VisualState x:Name="Disabled">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#c02135" />
+                                    <Setter Property="BackgroundColor" Value="#232F34" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -38,7 +38,7 @@
                                    AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All"
                                    IsVisible="{TemplateBinding RootViewModel.ShowLoading}">
                         <Frame AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Background="#4A6572" Opacity="0.15"/>
-                        <material3:MaterialProgressIndicator Type="Circular" Scale="0.55"
+                        <material3:MaterialProgressIndicator Type="Circular" Scale="0.5"
                                      IndicatorColor="{StaticResource LoadingIndicatorColor}"
                                      AbsoluteLayout.LayoutBounds=".5,.5,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"/>
                     </AbsoluteLayout>
