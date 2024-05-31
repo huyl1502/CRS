@@ -8,8 +8,8 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#c02135</Color>
-            <Color x:Key="LoadingIndicatorColor">#6699ff</Color>
+            <Color x:Key="Primary">#344955</Color>
+            <Color x:Key="LoadingIndicatorColor">#F9AA33</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
@@ -37,8 +37,8 @@
                                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
                                    AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All"
                                    IsVisible="{TemplateBinding RootViewModel.ShowLoading}">
-                        <Frame AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Background="Transparent"/>
-                        <material3:MaterialProgressIndicator Type="Circular"
+                        <Frame AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Background="#4A6572" Opacity="0.15"/>
+                        <material3:MaterialProgressIndicator Type="Circular" Scale="0.55"
                                      IndicatorColor="{StaticResource LoadingIndicatorColor}"
                                      AbsoluteLayout.LayoutBounds=".5,.5,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"/>
                     </AbsoluteLayout>

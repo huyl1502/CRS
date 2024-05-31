@@ -106,7 +106,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\favorite.png">
+    <AndroidResource Include="Resources\drawable\rating.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

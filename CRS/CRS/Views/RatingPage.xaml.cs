@@ -1,15 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
+using CRS.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace CRS.Views
 {
-    public partial class RatingPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class RatingPage : BasePage
     {
         public RatingPage()
         {
             InitializeComponent();
+            this.BindingContext = new RatingViewModel();
         }
     }
 }

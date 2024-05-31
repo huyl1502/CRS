@@ -27,17 +27,21 @@
                     <Image Source="hust_logo.png" VerticalOptions="Center"/>
                 </ContentView>
                 <material3:MaterialEntry
+                    BackgroundColor="White"
+                    FocusedBackgroundColor="White"
+                    FocusedLabelTextColor="{StaticResource Primary}"
                     Margin="0,15,0,15"
                     LabelText="Username *"
-                    LabelSize="14"
                     MaxLength="50"
                     Text="{Binding UserName}"
                     TabIndex="1"
                     ReturnType="Next" />
                 <material3:MaterialEntry
+                    BackgroundColor="White"
+                    FocusedBackgroundColor="White"
+                    FocusedLabelTextColor="{StaticResource Primary}"
                     Margin="0,0,0,15"
                     LabelText="Password *"
-                    LabelSize="14"
                     MaxLength="50"
                     Text="{Binding PassWord}"
                     TabIndex="2"
@@ -45,7 +49,6 @@
                     IsPassword="True"/>
                 <material3:MaterialButton
                     Text="Login" 
-                    CornerRadius="5"
                     Command="{Binding LoginCommand}"
                     BackgroundColor="{StaticResource Primary}" />
             </StackLayout>

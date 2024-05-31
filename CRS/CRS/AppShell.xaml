@@ -78,7 +78,7 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="Rating" Icon="favorite.png">
+    <FlyoutItem Title="Rating" Icon="rating.png">
         <ShellContent Route="RatingPage" ContentTemplate="{DataTemplate local:RatingPage}" />
     </FlyoutItem>
     <!--
@@ -134,6 +134,5 @@
     </Shell.MenuItemTemplate>
 
     -->
-
 </Shell>
 

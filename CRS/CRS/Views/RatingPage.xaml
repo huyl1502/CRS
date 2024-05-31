@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CRS.Views"
              x:Class="CRS.Views.RatingPage"
              xmlns:material3="clr-namespace:Plugin.MaterialDesignControls.Material3;assembly=Plugin.MaterialDesignControls"
+             RootViewModel="{Binding}"
+             ControlTemplate="{StaticResource BaseTemplate}"
              xmlns:vm="clr-namespace:CRS.ViewModels"
              Title="{Binding Title}">
     <ContentPage.BindingContext>
@@ -11,7 +14,7 @@
     
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Accent">#e15164</Color>
+            <Color x:Key="Accent">#4A6572</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -20,28 +23,38 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                 <material3:MaterialCard
                     BackgroundColor="White"
-                    Type="Filled"
-                    CornerRadius="10">
-                    <Label Text="Start Rating now" FontSize="Title"/>
+                    Type="Filled">
+                    <material3:MaterialLabel
+                        Type="TitleLarge"
+                        Text="Xin quý khách vui lòng đánh giá chất lượng phục vụ" />
                 </material3:MaterialCard>
                 <material3:MaterialCard
                     BackgroundColor="White"
                     Type="Filled"
                     CornerRadius="10">
-                    <Label Text="1. Employee"
-                       FontSize="16" Padding="0,0,0,0"/>
+                    <material3:MaterialLabel
+                        Type="LabelMedium"
+                        Text="Giao dịch viên" />
                 </material3:MaterialCard>
                 <material3:MaterialCard
                     BackgroundColor="White"
                     Type="Filled"
                     CornerRadius="10">
                     <StackLayout>
-                        <Label Text="2. Rating"
-                            FontSize="16" Padding="0,0,0,0"/>
+                        <material3:MaterialLabel
+                        Type="LabelMedium"
+                        Text="Đánh giá" />
                         <material3:MaterialRating
                             ItemsByRow="10"
                             ItemSize="4"
@@ -51,12 +64,11 @@
                 </material3:MaterialCard>
                 <material3:MaterialButton
                     Text="Submit" 
-                    CornerRadius="5"
                     Command="{Binding OpenWebCommand}"
                     BackgroundColor="{StaticResource Primary}" />
             </StackLayout>
         </ScrollView>
     </Grid>
 
-</ContentPage>
+</local:BasePage>
 
