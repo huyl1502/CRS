@@ -11,7 +11,7 @@ namespace CRS.ViewModels
     {
         public RatingViewModel()
         {
-            Title = "Rating";
+            Title = "Bảng đánh giá sự hài lòng của khách hàng";
             OpenWebCommand = new Command(OnSubmitClicked);
         }
 

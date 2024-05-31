@@ -25,8 +25,8 @@
         </Grid.RowDefinitions>
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                <ContentView Padding="0,15" VerticalOptions="FillAndExpand">
+                    <Image Source="hust_background_logo.png" VerticalOptions="Center" HeightRequest="125" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
@@ -41,34 +41,54 @@
                 </material3:MaterialCard>
                 <material3:MaterialCard
                     BackgroundColor="White"
-                    Type="Filled"
-                    CornerRadius="10">
-                    <material3:MaterialLabel
+                    Type="Filled">
+                    <StackLayout Orientation="Vertical">
+                        <material3:MaterialLabel
                         Type="LabelMedium"
                         Text="Giao dịch viên" />
+                        <material3:MaterialLabel
+                        Type="LabelLarge"
+                        FontAttributes="Italic"
+                        Text="HuyLq - Le Quang Huy" />
+                    </StackLayout>
                 </material3:MaterialCard>
                 <material3:MaterialCard
                     BackgroundColor="White"
-                    Type="Filled"
-                    CornerRadius="10">
+                    Type="Filled">
                     <StackLayout>
                         <material3:MaterialLabel
                         Type="LabelMedium"
                         Text="Đánh giá" />
                         <material3:MaterialRating
-                            ItemsByRow="10"
+                            ItemsByRow="20"
                             ItemSize="4"
                             SelectedIcon="starSelectedIcon.png" 
                             UnSelectedIcon="starUnselectedIcon.png" />
                     </StackLayout>
                 </material3:MaterialCard>
+                <material3:MaterialCard
+                    BackgroundColor="White"
+                    Type="Filled">
+                    <StackLayout>
+                        <material3:MaterialLabel
+                        Type="LabelMedium"
+                        Text="Lý do không hài lòng" />
+                        <material3:MaterialCheckbox 
+                            Text="Phong cách giao tiếp chưa tốt"
+                            Color="{StaticResource Primary}"/>
+                        <material3:MaterialCheckbox 
+                            Text="Nhân viên thao tác chậm"
+                            Color="{StaticResource Primary}"/>
+                        <material3:MaterialCheckbox 
+                            Text="Lâu đến lượt giao dịch"
+                            Color="{StaticResource Primary}"/>
+                    </StackLayout>
+                </material3:MaterialCard>
                 <material3:MaterialButton
-                    Text="Submit" 
+                    Text="Gửi" 
                     Command="{Binding OpenWebCommand}"
                     BackgroundColor="{StaticResource Primary}" />
             </StackLayout>
         </ScrollView>
     </Grid>
-
 </local:BasePage>
-
