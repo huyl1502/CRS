@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Row="1" Grid.Column="1" Padding="10,0,10,0" VerticalOptions="Center">
                 <ContentView VerticalOptions="FillAndExpand">
-                    <Image Source="hust_logo.png" VerticalOptions="Center"/>
+                    <Image Source="logo.png" VerticalOptions="Center"/>
                 </ContentView>
                 <material3:MaterialEntry
                     BackgroundColor="White"

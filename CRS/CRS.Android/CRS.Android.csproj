@@ -86,10 +86,6 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\hust_logo.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\xamarin_logo.png">
       <SubType></SubType>
       <Generator></Generator>
@@ -110,7 +106,11 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\hust_background_logo.png">
+    <AndroidResource Include="Resources\drawable\background_logo.jpeg">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\logo.jpeg">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
