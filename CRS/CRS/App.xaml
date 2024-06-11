@@ -8,8 +8,8 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#344955</Color>
-            <Color x:Key="LoadingIndicatorColor">#F9AA33</Color>
+            <Color x:Key="Primary">#00524e</Color>
+            <Color x:Key="LoadingIndicatorColor">#f2b320</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
