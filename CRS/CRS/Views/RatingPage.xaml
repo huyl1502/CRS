@@ -25,65 +25,71 @@
         </Grid.RowDefinitions>
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,15" VerticalOptions="FillAndExpand">
-                    <Image Source="background_logo.png" VerticalOptions="Center" HeightRequest="125" />
+                <ContentView Padding="0" VerticalOptions="FillAndExpand">
+                    <Image Source="background_logo.png" VerticalOptions="Center" HeightRequest="115" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <material3:MaterialCard
-                    BackgroundColor="White"
-                    Type="Filled">
+            <StackLayout Orientation="Vertical" Padding="20, 10" Spacing="10">
+                <StackLayout>
                     <material3:MaterialLabel
                         Type="TitleLarge"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
                         Text="Xin quý khách vui lòng đánh giá chất lượng phục vụ" />
-                </material3:MaterialCard>
+                        <material3:MaterialLabel
+                        Type="TitleLarge"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
+                        Text="Please rate my service" />
+                </StackLayout>
                 <material3:MaterialCard
                     BackgroundColor="White"
                     Type="Filled">
                     <StackLayout Orientation="Vertical">
                         <material3:MaterialLabel
-                        Type="LabelMedium"
-                        Text="Giao dịch viên" />
-                        <material3:MaterialLabel
-                        Type="LabelLarge"
-                        FontAttributes="Italic"
-                        Text="HuyLq - Le Quang Huy" />
+                        Type="TitleLarge"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
+                        Text="Giao dịch viên: Le Quang Huy - MS: 12345" />
                     </StackLayout>
                 </material3:MaterialCard>
-                <material3:MaterialCard
-                    BackgroundColor="White"
-                    Type="Filled">
-                    <StackLayout>
-                        <material3:MaterialLabel
-                        Type="LabelMedium"
-                        Text="Đánh giá" />
-                        <material3:MaterialRating
-                            ItemsByRow="20"
+                <StackLayout>
+                    <!--
+                    <material3:MaterialRating
+                            ItemsByRow="4"
                             ItemSize="4"
                             SelectedIcon="starSelectedIcon.png" 
                             UnSelectedIcon="starUnselectedIcon.png" />
-                    </StackLayout>
-                </material3:MaterialCard>
-                <material3:MaterialCard
-                    BackgroundColor="White"
-                    Type="Filled">
-                    <StackLayout>
+                    -->
+                    <material3:MaterialIconButton
+                        Margin="50"
+                        Icon="smilingFace.png"
+                        BackgroundColor="Transparent"
+                        ButtonType="Filled"
+                        Animation="None"
+                        Scale="3" />
+                </StackLayout>
+                <StackLayout>
                         <material3:MaterialLabel
-                        Type="LabelMedium"
+                        Type="TitleLarge"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
                         Text="Lý do không hài lòng" />
                         <material3:MaterialCheckbox 
                             Text="Phong cách giao tiếp chưa tốt"
+                            TextColor="{StaticResource Primary}"
                             Color="{StaticResource Primary}"/>
                         <material3:MaterialCheckbox 
                             Text="Nhân viên thao tác chậm"
+                            TextColor="{StaticResource Primary}"
                             Color="{StaticResource Primary}"/>
                         <material3:MaterialCheckbox 
                             Text="Lâu đến lượt giao dịch"
+                            TextColor="{StaticResource Primary}"
                             Color="{StaticResource Primary}"/>
                     </StackLayout>
-                </material3:MaterialCard>
                 <material3:MaterialButton
                     Text="Gửi" 
                     Command="{Binding OpenWebCommand}"
