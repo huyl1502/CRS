@@ -31,36 +31,40 @@
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+            <StackLayout Orientation="Vertical" Padding="20, 10" Spacing="10">
                 <material3:MaterialCard
                     BackgroundColor="White"
                     Type="Filled">
-                    <material3:MaterialLabel
+                    <StackLayout>
+                        <material3:MaterialLabel
                         Type="TitleLarge"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
                         Text="Xin quý khách vui lòng đánh giá chất lượng phục vụ" />
+                        <material3:MaterialLabel
+                        Type="TitleLarge"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
+                        Text="Please vote my service" />
+                    </StackLayout>
                 </material3:MaterialCard>
                 <material3:MaterialCard
                     BackgroundColor="White"
                     Type="Filled">
                     <StackLayout Orientation="Vertical">
                         <material3:MaterialLabel
-                        Type="LabelMedium"
-                        Text="Giao dịch viên" />
-                        <material3:MaterialLabel
-                        Type="LabelLarge"
-                        FontAttributes="Italic"
-                        Text="HuyLq - Le Quang Huy" />
+                        Type="TitleLarge"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
+                        Text="Giao dịch viên: Le Quang Huy - MS: 12345" />
                     </StackLayout>
                 </material3:MaterialCard>
                 <material3:MaterialCard
                     BackgroundColor="White"
                     Type="Filled">
                     <StackLayout>
-                        <material3:MaterialLabel
-                        Type="LabelMedium"
-                        Text="Đánh giá" />
                         <material3:MaterialRating
-                            ItemsByRow="20"
+                            ItemsByRow="4"
                             ItemSize="4"
                             SelectedIcon="starSelectedIcon.png" 
                             UnSelectedIcon="starUnselectedIcon.png" />
@@ -71,7 +75,9 @@
                     Type="Filled">
                     <StackLayout>
                         <material3:MaterialLabel
-                        Type="LabelMedium"
+                        Type="TitleLarge"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
                         Text="Lý do không hài lòng" />
                         <material3:MaterialCheckbox 
                             Text="Phong cách giao tiếp chưa tốt"
