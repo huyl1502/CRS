@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:CRS.Views"
+             xmlns:material3="clr-namespace:Plugin.MaterialDesignControls.Material3;assembly=Plugin.MaterialDesignControls"
+             RootViewModel="{Binding}"
+             ControlTemplate="{StaticResource BaseTemplate}"
+             mc:Ignorable="d"
+             x:Class="CRS.Views.ReasonPage">
+    <StackLayout Padding="20, 10">
+        <StackLayout>
+            <material3:MaterialLabel
+                Type="HeadlineLarge"
+                TextColor="{StaticResource Primary}"
+                HorizontalTextAlignment="Center"
+                Text="Lý do" />
+            <material3:MaterialCheckbox 
+                Animation="None"
+                Text="Phong cách giao tiếp chưa tốt"
+                TextColor="{StaticResource Primary}"
+                Color="{StaticResource Primary}"/>
+            <material3:MaterialCheckbox 
+                Animation="None"
+                Text="Nhân viên thao tác chậm"
+                TextColor="{StaticResource Primary}"
+                Color="{StaticResource Primary}"/>
+            <material3:MaterialCheckbox 
+                Animation="None"
+                Text="Lâu đến lượt giao dịch"
+                TextColor="{StaticResource Primary}"
+                Color="{StaticResource Primary}"/>
+            <material3:MaterialCheckbox 
+                Animation="None"
+                Text="Khác"
+                TextColor="{StaticResource Primary}"
+                Color="{StaticResource Primary}"/>
+        </StackLayout>
+        <material3:MaterialButton
+            Text="Gửi" 
+            Command="{Binding SendCommand}"
+            BackgroundColor="{StaticResource Primary}" />
+    </StackLayout>
+</local:BasePage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material3="clr-namespace:Plugin.MaterialDesignControls.Material3;assembly=Plugin.MaterialDesignControls"
+             x:Class="CRS.Views.Components.MyRatingIcon">
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="Center" Padding="25, 20">
+            <!--<material3:MaterialIconButton
+                x:Name="iconButton"
+                Command="{Binding TabCommand}"
+                Padding="25"
+                BackgroundColor="Transparent"
+                ButtonType="Filled"
+                Animation="None"
+                Scale="4" />-->
+            <ContentView VerticalOptions="FillAndExpand">
+                <Image x:Name="iconButton"  VerticalOptions="Center">
+                    <!--<Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnItemTapped" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>-->
+                </Image>
+            </ContentView>
+            <material3:MaterialLabel
+                x:Name="labelIcon"
+                Type="TitleMedium"
+                TextColor="{StaticResource Primary}"
+                HorizontalTextAlignment="Center"
+                Text="Hài lòng" />
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

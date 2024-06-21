@@ -14,12 +14,12 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="3*" />
+                <RowDefinition Height="15*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Row="1" Grid.Column="1" Padding="10,0,10,0" VerticalOptions="Center">
@@ -48,6 +48,7 @@
                     ReturnType="Next"
                     IsPassword="True"/>
                 <material3:MaterialButton
+                    Margin="0, 15"
                     Text="Đăng nhập" 
                     Command="{Binding LoginCommand}"
                     BackgroundColor="{StaticResource Primary}" />

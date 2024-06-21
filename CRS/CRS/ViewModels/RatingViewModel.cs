@@ -9,25 +9,29 @@ namespace CRS.ViewModels
 {
     public class RatingViewModel : BaseViewModel
     {
-        public RatingViewModel()
+        double bannerWidth;
+        public double BannerWidth
         {
-            Title = "Bảng đánh giá sự hài lòng của khách hàng";
-            OpenWebCommand = new Command(OnSubmitClicked);
+            get { return bannerWidth; }
+            set { SetProperty(ref bannerWidth, value); }
         }
 
-        public ICommand OpenWebCommand { get; }
-
-        private async void OnSubmitClicked(object obj)
+        public RatingViewModel()
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            ShowLoading = true;
-            var lstAddress = Utilities.Utilities.GetMacAddress();
-            foreach(var add in lstAddress)
+            Title = "Bảng đánh giá chất lượng dịch vụ";
+
+            SetBannerWidth();
+            DeviceDisplay.MainDisplayInfoChanged += (sender, args) =>
             {
-                Console.WriteLine(add.ToString());
-            }
-            await Task.Delay(3000);
-            ShowLoading = false;
+                SetBannerWidth();
+            };
+        }
+
+        private void SetBannerWidth()
+        {
+            double screenWidth = DeviceDisplay.MainDisplayInfo.Width;
+            double desiredWidth = screenWidth * 0.65; // 50% of screen width
+            BannerWidth = desiredWidth;
         }
     }
 }

@@ -2,6 +2,7 @@
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CRS.Views"
+             xmlns:component="clr-namespace:CRS.Views.Components"
              x:Class="CRS.Views.RatingPage"
              xmlns:material3="clr-namespace:Plugin.MaterialDesignControls.Material3;assembly=Plugin.MaterialDesignControls"
              RootViewModel="{Binding}"
@@ -26,13 +27,13 @@
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0" VerticalOptions="FillAndExpand">
-                    <Image Source="background_logo.png" VerticalOptions="Center" HeightRequest="115" />
+                    <Image Source="background_logo.png" VerticalOptions="Center" HeightRequest="125" WidthRequest="{Binding BannerWidth}" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="20, 10" Spacing="10">
-                <StackLayout>
+                <!--<StackLayout>
                     <material3:MaterialLabel
                         Type="TitleLarge"
                         TextColor="{StaticResource Primary}"
@@ -43,7 +44,7 @@
                         TextColor="{StaticResource Primary}"
                         HorizontalTextAlignment="Center"
                         Text="Please rate my service" />
-                </StackLayout>
+                </StackLayout>-->
                 <material3:MaterialCard
                     BackgroundColor="White"
                     Type="Filled">
@@ -55,45 +56,7 @@
                         Text="Giao dịch viên: Le Quang Huy - MS: 12345" />
                     </StackLayout>
                 </material3:MaterialCard>
-                <StackLayout>
-                    <!--
-                    <material3:MaterialRating
-                            ItemsByRow="4"
-                            ItemSize="4"
-                            SelectedIcon="starSelectedIcon.png" 
-                            UnSelectedIcon="starUnselectedIcon.png" />
-                    -->
-                    <material3:MaterialIconButton
-                        Margin="50"
-                        Icon="smilingFace.png"
-                        BackgroundColor="Transparent"
-                        ButtonType="Filled"
-                        Animation="None"
-                        Scale="3" />
-                </StackLayout>
-                <StackLayout>
-                        <material3:MaterialLabel
-                        Type="TitleLarge"
-                        TextColor="{StaticResource Primary}"
-                        HorizontalTextAlignment="Center"
-                        Text="Lý do không hài lòng" />
-                        <material3:MaterialCheckbox 
-                            Text="Phong cách giao tiếp chưa tốt"
-                            TextColor="{StaticResource Primary}"
-                            Color="{StaticResource Primary}"/>
-                        <material3:MaterialCheckbox 
-                            Text="Nhân viên thao tác chậm"
-                            TextColor="{StaticResource Primary}"
-                            Color="{StaticResource Primary}"/>
-                        <material3:MaterialCheckbox 
-                            Text="Lâu đến lượt giao dịch"
-                            TextColor="{StaticResource Primary}"
-                            Color="{StaticResource Primary}"/>
-                    </StackLayout>
-                <material3:MaterialButton
-                    Text="Gửi" 
-                    Command="{Binding OpenWebCommand}"
-                    BackgroundColor="{StaticResource Primary}" />
+                <component:MyRating ShowLoading="{Binding ShowLoading, Mode=TwoWay}" />
             </StackLayout>
         </ScrollView>
     </Grid>
