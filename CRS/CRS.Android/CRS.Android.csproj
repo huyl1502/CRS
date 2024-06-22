@@ -143,5 +143,11 @@
     <AndroidResource Include="Resources\drawable\starSelectedIcon.png" />
     <AndroidResource Include="Resources\drawable\starUnselectedIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\neutral.png" />
+    <AndroidResource Include="Resources\drawable\neutralFull.png" />
+    <AndroidResource Include="Resources\drawable\sad.png" />
+    <AndroidResource Include="Resources\drawable\sadFull.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

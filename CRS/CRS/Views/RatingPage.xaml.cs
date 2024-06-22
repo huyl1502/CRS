@@ -14,5 +14,11 @@ namespace CRS.Views
             InitializeComponent();
             this.BindingContext = new RatingViewModel();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            myRating.ReloadListRating();
+        }
     }
 }

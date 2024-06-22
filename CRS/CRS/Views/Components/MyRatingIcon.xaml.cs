@@ -21,11 +21,12 @@ namespace CRS.Views.Components
             set
             {
                 isSelected = value;
-                Icon = SelectedIcon;
+                Icon = isSelected ? SelectedIcon : UnSelectedIcon;
             }
         }
         public string SelectedIcon { get; set; }
         public string UnSelectedIcon { get; set; }
+        public int Point { get; set; }
 
         static readonly BindableProperty IconProperty =
             BindableProperty.Create(nameof(Icon), typeof(string), typeof(MyRatingIcon), default(string));
@@ -48,7 +49,6 @@ namespace CRS.Views.Components
             InitializeComponent();
 
             IsSelected = false;
-            Icon = UnSelectedIcon;
             iconButton.SetBinding(Image.SourceProperty, new Binding(nameof(Icon), source: this));
             labelIcon.SetBinding(MaterialLabel.TextProperty, new Binding(nameof(Label), source: this));
         }

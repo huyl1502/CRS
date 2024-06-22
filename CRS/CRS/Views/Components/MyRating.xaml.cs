@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
+using CRS.Services;
+using System.Linq;
+using CRS.Utilities;
 
 namespace CRS.Views.Components
 {
@@ -12,27 +15,6 @@ namespace CRS.Views.Components
     public partial class MyRating : ContentView
     {
         List<MyRatingIcon> LstRatingIcons { get; set; }
-        public MyRating()
-        {
-            InitializeComponent();
-
-            var tapGestureRecognizer = new TapGestureRecognizer { NumberOfTapsRequired = 1 };
-            tapGestureRecognizer.Tapped += OnTapped;
-
-            LstRatingIcons = new List<MyRatingIcon>
-            {
-                new MyRatingIcon { Icon="love.png", UnSelectedIcon="love.png", SelectedIcon="loveFull.png", Label="Rất hài lòng"},
-                new MyRatingIcon { Icon="happy.png", UnSelectedIcon="happy.png", SelectedIcon="happyFull.png", Label="Hài lòng"},
-                new MyRatingIcon { Icon="smile.png", UnSelectedIcon="smile.png", SelectedIcon="smileFull.png", Label="Bình thường"},
-                new MyRatingIcon { Icon="crying.png", UnSelectedIcon="crying.png", SelectedIcon="cryingFull.png", Label="Không hài lòng"}
-            };
-
-            LstRatingIcons.ForEach(icon =>
-            {
-                icon.GestureRecognizers.Add(tapGestureRecognizer);
-                MainContent.Children.Add(icon);
-            });
-        }
 
         public static readonly BindableProperty ShowLoadingProperty = BindableProperty.Create(
             nameof(ShowLoading),
@@ -46,18 +28,48 @@ namespace CRS.Views.Components
             set => SetValue(ShowLoadingProperty, value);
         }
 
+        public MyRating()
+        {
+            InitializeComponent();
+
+            var tapGestureRecognizer = new TapGestureRecognizer { NumberOfTapsRequired = 1 };
+            tapGestureRecognizer.Tapped += OnTapped;
+
+            var ratingIconConfig = new RatingIconConfigService();
+            LstRatingIcons = ratingIconConfig.Config.ListRatingIcon.Select(ratingIcon => new MyRatingIcon
+            {
+                UnSelectedIcon = ratingIcon.UnSelectedIcon,
+                SelectedIcon = ratingIcon.SelectedIcon,
+                Label = ratingIcon.Label,
+                Point = ratingIcon.Point,
+            }).ToList();
+
+            LstRatingIcons.ForEach(icon =>
+            {
+                icon.GestureRecognizers.Add(tapGestureRecognizer);
+                MainContent.Children.Add(icon);
+            });
+        }
+
         async void OnTapped(object sender, EventArgs e)
         {
             ShowLoading = true;
+            ReloadListRating();
+            var selectedItem = ((MyRatingIcon)sender);
+            selectedItem.IsSelected = true;
+            if (selectedItem.Point == Constant.RatingPoint.Sad)
+            {
+                await Shell.Current.GoToAsync($"{nameof(ReasonPage)}");
+            }
+            ShowLoading = false;
+        }
+
+        public void ReloadListRating()
+        {
             LstRatingIcons.ForEach(icon =>
             {
                 icon.IsSelected = false;
-                icon.Icon = icon.UnSelectedIcon;
             });
-            ((MyRatingIcon)sender).IsSelected = true;
-            await Task.Delay(10);
-            await Shell.Current.GoToAsync($"{nameof(ReasonPage)}");
-            ShowLoading = false;
         }
     }
 }

@@ -1,0 +1,28 @@
+{
+  "ListRatingIcon": [
+    {
+      "UnSelectedIcon": "happy.png",
+      "SelectedIcon": "happyFull.png",
+      "Label": "Rất hài lòng",
+      "Point": 3
+    },
+    {
+      "UnSelectedIcon": "smile.png",
+      "SelectedIcon": "smileFull.png",
+      "Label": "Hài lòng",
+      "Point": 2
+    },
+    {
+      "UnSelectedIcon": "neutral.png",
+      "SelectedIcon": "neutralFull.png",
+      "Label": "Bình thường",
+      "Point": 1
+    },
+    {
+      "UnSelectedIcon": "sad.png",
+      "SelectedIcon": "sadFull.png",
+      "Label": "Không hài lòng",
+      "Point": 0
+    }
+  ]
+}

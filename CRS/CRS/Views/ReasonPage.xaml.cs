@@ -1,4 +1,6 @@
-﻿using CRS.ViewModels;
+﻿using CRS.Services;
+using CRS.ViewModels;
+using Plugin.MaterialDesignControls.Material3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,18 @@ namespace CRS.Views
         {
             InitializeComponent();
             this.BindingContext = new ReasonViewModel();
+
+            Color primaryColor = (Color)Application.Current.Resources["Primary"];
+            var reasonConfig = new ReasonConfigService();
+            var lstReasonCheckBox = reasonConfig.Config.ListReason.Select(reason => new MaterialCheckbox
+            {
+                Animation = Plugin.MaterialDesignControls.AnimationTypes.None,
+                Text = reason,
+                Color = primaryColor,
+                TextColor = primaryColor,
+            }).ToList();
+
+            lstReasonCheckBox.ForEach(CheckBox => MainContent.Children.Add(CheckBox));
         }
     }
 }

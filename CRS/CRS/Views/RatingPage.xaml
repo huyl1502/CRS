@@ -56,7 +56,7 @@
                         Text="Giao dịch viên: Le Quang Huy - MS: 12345" />
                     </StackLayout>
                 </material3:MaterialCard>
-                <component:MyRating ShowLoading="{Binding ShowLoading, Mode=TwoWay}" />
+                <component:MyRating x:Name="myRating" ShowLoading="{Binding ShowLoading, Mode=TwoWay}" />
             </StackLayout>
         </ScrollView>
     </Grid>
