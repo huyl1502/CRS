@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CRS.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -9,7 +10,6 @@ namespace CRS.Utilities
 {
     public class ApiClient
     {
-        private string url;
         private static HttpClient _client;
         public static HttpClient Client
         {
@@ -20,7 +20,7 @@ namespace CRS.Utilities
             }
         }
 
-        public async Task<string> GetDataAsync()
+        public async Task<string> GetDataAsync(string url)
         {
             try
             {
@@ -34,14 +34,22 @@ namespace CRS.Utilities
             }
         }
 
-        public async Task<string> PostDataAsync(object data)
+        public static async Task<string> PostDataAsync(string url, object data, bool isUseToken = true)
         {
             try
             {
-                var jsonData = JsonConvert.SerializeObject(data);
+                var appSettingsConfig = new AppSettinngsService();
+                var host = appSettingsConfig.Config.Host;
+
+                var dataObjectHasToken = new {
+                    url = url,
+                    value = data
+                };
+
+                var jsonData = JsonConvert.SerializeObject(dataObjectHasToken);
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-                var response = await _client.PostAsync(url, content);
+                var response = await _client.PostAsync(host, content);
                 response.EnsureSuccessStatusCode();
 
                 return await response.Content.ReadAsStringAsync();

@@ -31,4 +31,10 @@ namespace CRS.Models
         [JsonProperty("ListReason")]
         public List<string> ListReason { get; set; }
     }
+
+    public class AppSettinngs
+    {
+        [JsonProperty("Host")]
+        public string Host { get; set; }
+    }
 }

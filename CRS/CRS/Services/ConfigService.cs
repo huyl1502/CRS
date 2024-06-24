@@ -44,4 +44,9 @@ namespace CRS.Services
     {
         public ReasonConfigService() : base("reason.json") { }
     }
+
+    public class AppSettinngsService : ConfigService<AppSettinngs>
+    {
+        public AppSettinngsService() : base("appsettings.json") { }
+    }
 }

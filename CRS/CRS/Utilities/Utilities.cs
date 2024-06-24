@@ -31,7 +31,7 @@ namespace CRS.Utilities
             }
         }
 
-        public async Task<string> GetTokenAsync()
+        public static async Task<string> GetTokenAsync()
         {
             try
             {

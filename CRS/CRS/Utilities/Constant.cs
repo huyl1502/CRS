@@ -6,6 +6,11 @@ namespace CRS.Utilities
 {
     public class Constant
     {
+        public static class ApiUrl
+        {
+            public static readonly string Login = "login/check";
+        }
+
         public static class RatingPoint
         {
             public static readonly int Happy = 3; //Rất hài lòng
