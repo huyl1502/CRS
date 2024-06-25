@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CRS.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using static CRS.Utilities.Constant;
 
 namespace CRS.ViewModels
 {

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
+using static CRS.Utilities.Constant;
 
 namespace CRS.Views
 {

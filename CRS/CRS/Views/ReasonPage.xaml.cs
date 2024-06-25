@@ -8,30 +8,49 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static CRS.Utilities.Constant;
 
 namespace CRS.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ReasonPage : BasePage
+    public partial class ReasonPage : BasePage, IQueryAttributable
     {
-        public ReasonPage()
+        private int ratingPoint;
+        public int RatingPoint
+        {
+            get { return ratingPoint; }
+            set { ratingPoint = value; }
+        }
+
+        public ReasonPage() 
         {
             InitializeComponent();
             this.BindingContext = new ReasonViewModel();
+        }
 
+        public void ApplyQueryAttributes(IDictionary<string, string> query)
+        {
+            if (query.ContainsKey(nameof(RatingPoint)))
+            {
+                RatingPoint = int.Parse(query[nameof(RatingPoint)]);
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             Color primaryColor = (Color)Application.Current.Resources["Primary"];
             var reasonConfig = new ReasonConfigService();
+
             var lstReasonCheckBox = reasonConfig.Config.ListReason
-                .Find(reason => reason.Point == RatingPoint.Sad)
+                .Find(reason => reason.Point == RatingPoint)
                 .Values
                 .Select(reason => new MaterialCheckbox
-            {
-                Animation = Plugin.MaterialDesignControls.AnimationTypes.None,
-                Text = reason,
-                Color = primaryColor,
-                TextColor = primaryColor,
-            }).ToList();
+                {
+                    Animation = Plugin.MaterialDesignControls.AnimationTypes.None,
+                    Text = reason,
+                    Color = primaryColor,
+                    TextColor = primaryColor,
+                }).ToList();
 
             lstReasonCheckBox.ForEach(checkBox => MainContent.Children.Add(checkBox));
         }
