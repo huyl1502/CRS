@@ -33,18 +33,6 @@
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="20, 10" Spacing="10">
-                <!--<StackLayout>
-                    <material3:MaterialLabel
-                        Type="TitleLarge"
-                        TextColor="{StaticResource Primary}"
-                        HorizontalTextAlignment="Center"
-                        Text="Xin quý khách vui lòng đánh giá chất lượng phục vụ" />
-                        <material3:MaterialLabel
-                        Type="TitleLarge"
-                        TextColor="{StaticResource Primary}"
-                        HorizontalTextAlignment="Center"
-                        Text="Please rate my service" />
-                </StackLayout>-->
                 <material3:MaterialCard
                     BackgroundColor="White"
                     Type="Filled">
@@ -56,11 +44,7 @@
                         Text="Giao dịch viên: Le Quang Huy - MS: 12345" />
                     </StackLayout>
                 </material3:MaterialCard>
-                <component:MyRating x:Name="myRating" SelectedPoint="{Binding SelectedValue}" ShowLoading="{Binding ShowLoading, Mode=TwoWay}" />
-                <material3:MaterialButton
-                    Text="Gửi"
-                    IsVisible="{Binding IsSendButtonVisible}"
-                    BackgroundColor="{StaticResource Primary}" />
+                <component:MyRating x:Name="myRating" ShowLoading="{Binding ShowLoading, Mode=TwoWay}" />
             </StackLayout>
         </ScrollView>
     </Grid>

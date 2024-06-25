@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static CRS.Utilities.Constant;
+
 namespace CRS.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -20,7 +22,10 @@ namespace CRS.Views
 
             Color primaryColor = (Color)Application.Current.Resources["Primary"];
             var reasonConfig = new ReasonConfigService();
-            var lstReasonCheckBox = reasonConfig.Config.ListReason.Select(reason => new MaterialCheckbox
+            var lstReasonCheckBox = reasonConfig.Config.ListReason
+                .Find(reason => reason.Point == RatingPoint.Sad)
+                .Values
+                .Select(reason => new MaterialCheckbox
             {
                 Animation = Plugin.MaterialDesignControls.AnimationTypes.None,
                 Text = reason,
@@ -28,7 +33,7 @@ namespace CRS.Views
                 TextColor = primaryColor,
             }).ToList();
 
-            lstReasonCheckBox.ForEach(CheckBox => MainContent.Children.Add(CheckBox));
+            lstReasonCheckBox.ForEach(checkBox => MainContent.Children.Add(checkBox));
         }
     }
 }

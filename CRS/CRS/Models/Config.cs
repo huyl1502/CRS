@@ -29,7 +29,15 @@ namespace CRS.Models
     public class ReasonConfig
     {
         [JsonProperty("ListReason")]
-        public List<string> ListReason { get; set; }
+        public List<Reason> ListReason { get; set; }
+
+        public class Reason {
+            [JsonProperty("Point")]
+            public int Point { get; set; }
+
+            [JsonProperty("Values")]
+            public List<string> Values { get; set; }
+        }
     }
 
     public class AppSettinngs

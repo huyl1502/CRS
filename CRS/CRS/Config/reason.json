@@ -1,8 +1,28 @@
 {
   "ListReason": [
-    "Phong cách giao tiếp chưa tốt",
-    "Nhân viên thao tác chậm",
-    "Lâu đến lượt giao dịch",
-    "Khác"
+    {
+      "Point": 0,
+      "Values": [
+        "Phong cách giao tiếp chưa tốt",
+        "Nhân viên thao tác chậm",
+        "Lâu đến lượt giao dịch",
+        "Khác"
+      ]
+    },
+    {
+      "Point": 1,
+      "Values": [ 
+      ]
+    },
+    {
+      "Point": 2,
+      "Values": [
+      ]
+    },
+    {
+      "Point": 3,
+      "Values": [
+      ]
+    }
   ]
 }

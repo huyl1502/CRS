@@ -1,6 +1,8 @@
-﻿using CRS.Models;
+﻿using CRS.DTO;
+using CRS.Models;
 using CRS.Services;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -57,9 +59,9 @@ namespace CRS.Utilities
 
                 string responseData = await response.Content.ReadAsStringAsync();
 
-                var dataContext = JsonConvert.DeserializeObject<DataContext<T>>(responseData);
+                var dataContext = Utilities.TryDeserialize<T>(responseData);
 
-                return dataContext.Value;
+                return dataContext;
             }
             catch (Exception ex)
             {
