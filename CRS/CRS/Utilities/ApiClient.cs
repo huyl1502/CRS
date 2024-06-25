@@ -1,4 +1,5 @@
-﻿using CRS.Services;
+﻿using CRS.Models;
+using CRS.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,11 +21,11 @@ namespace CRS.Utilities
             }
         }
 
-        public async Task<string> GetDataAsync(string url)
+        public static async Task<string> GetDataAsync<T>(string url)
         {
             try
             {
-                var response = await _client.GetAsync(url);
+                var response = await Client.GetAsync(url);
 
                 return await response.Content.ReadAsStringAsync();
             }
@@ -34,25 +35,31 @@ namespace CRS.Utilities
             }
         }
 
-        public static async Task<string> PostDataAsync(string url, object data, bool isUseToken = true)
+        public static async Task<T> PostDataAsync<T>(string url, object data)
         {
             try
             {
                 var appSettingsConfig = new AppSettinngsService();
                 var host = appSettingsConfig.Config.Host;
 
-                var dataObjectHasToken = new {
+                var dataObject = new
+                {
+                    token = Utilities.GetTokenAsync().Result,
                     url = url,
                     value = data
                 };
 
-                var jsonData = JsonConvert.SerializeObject(dataObjectHasToken);
+                var jsonData = JsonConvert.SerializeObject(dataObject);
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-                var response = await _client.PostAsync(host, content);
+                var response = await Client.PostAsync(host, content);
                 response.EnsureSuccessStatusCode();
 
-                return await response.Content.ReadAsStringAsync();
+                string responseData = await response.Content.ReadAsStringAsync();
+
+                var dataContext = JsonConvert.DeserializeObject<DataContext<T>>(responseData);
+
+                return dataContext.Value;
             }
             catch (Exception ex)
             {

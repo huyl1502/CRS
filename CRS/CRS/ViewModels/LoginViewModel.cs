@@ -1,4 +1,5 @@
-﻿using CRS.Utilities;
+﻿using CRS.Models;
+using CRS.Utilities;
 using CRS.Views;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,8 @@ namespace CRS.ViewModels
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             ShowLoading = true;
-            await ApiClient.PostDataAsync(ApiUrl.Login, new { _id = UserName, Password = PassWord });
+            var account = await ApiClient.PostDataAsync<Account>(ApiUrl.Login, new { _id = UserName, Password = PassWord });
+            await Utilities.Utilities.SaveTokenAsync(account.Token);
             await Shell.Current.GoToAsync($"//{nameof(RatingPage)}");
             ShowLoading = false;
         }

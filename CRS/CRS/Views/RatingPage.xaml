@@ -56,7 +56,11 @@
                         Text="Giao dịch viên: Le Quang Huy - MS: 12345" />
                     </StackLayout>
                 </material3:MaterialCard>
-                <component:MyRating x:Name="myRating" ShowLoading="{Binding ShowLoading, Mode=TwoWay}" />
+                <component:MyRating x:Name="myRating" SelectedPoint="{Binding SelectedValue}" ShowLoading="{Binding ShowLoading, Mode=TwoWay}" />
+                <material3:MaterialButton
+                    Text="Gửi"
+                    IsVisible="{Binding IsSendButtonVisible}"
+                    BackgroundColor="{StaticResource Primary}" />
             </StackLayout>
         </ScrollView>
     </Grid>

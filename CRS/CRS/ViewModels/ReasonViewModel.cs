@@ -22,8 +22,10 @@ namespace CRS.ViewModels
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             ShowLoading = true;
             var lstAddress = Utilities.Utilities.GetMacAddress();
+            var token = Utilities.Utilities.GetTokenAsync().Result;
             foreach (var add in lstAddress)
             {
+                Console.WriteLine(token);
                 Console.WriteLine(add.ToString());
             }
             await Task.Delay(3000);

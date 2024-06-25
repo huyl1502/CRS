@@ -18,7 +18,7 @@ namespace CRS.Utilities
             return lstAddress;
         }
 
-        public async Task SaveTokenAsync(string token)
+        public static async Task SaveTokenAsync(string token)
         {
             try
             {

@@ -28,6 +28,15 @@ namespace CRS.Views.Components
             set => SetValue(ShowLoadingProperty, value);
         }
 
+        public static readonly BindableProperty SelectedPointProperty =
+        BindableProperty.Create(nameof(SelectedPoint), typeof(int), typeof(MyRating), null);
+
+        public int SelectedPoint
+        {
+            get => (int)GetValue(SelectedPointProperty);
+            set => SetValue(SelectedPointProperty, value);
+        }
+
         public MyRating()
         {
             InitializeComponent();
@@ -57,6 +66,7 @@ namespace CRS.Views.Components
             ReloadListRating();
             var selectedItem = ((MyRatingIcon)sender);
             selectedItem.IsSelected = true;
+            SelectedPoint = selectedItem.Point;
             if (selectedItem.Point == Constant.RatingPoint.Sad)
             {
                 await Shell.Current.GoToAsync($"{nameof(ReasonPage)}");
