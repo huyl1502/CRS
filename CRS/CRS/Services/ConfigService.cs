@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Xamarin.Essentials;
 
 namespace CRS.Services
 {

@@ -59,7 +59,7 @@ namespace CRS.Utilities
 
                 string responseData = await response.Content.ReadAsStringAsync();
 
-                var dataContext = Utilities.TryDeserialize<T>(responseData);
+                var dataContext = TryDeserialize<T>(responseData);
 
                 return dataContext;
             }
@@ -67,6 +67,15 @@ namespace CRS.Utilities
             {
                 throw ex;
             }
+        }
+
+        public static T TryDeserialize<T>(string json)
+        {
+            var dataContextObject = JsonConvert.DeserializeObject<DataContext<T>>(json);
+            if (dataContextObject.Value != null) return dataContextObject.Value;
+
+            var errorObject = JsonConvert.DeserializeObject<ErrorResponse>(json);
+            throw new MyException(errorObject.Code, errorObject.Message);
         }
     }
 }

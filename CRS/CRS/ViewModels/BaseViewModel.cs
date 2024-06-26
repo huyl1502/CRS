@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
 using CRS.Models;
 using CRS.Services;
 
@@ -59,6 +57,17 @@ namespace CRS.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+        public void Toast(string message)
+        {
+            ICustomToast toast = DependencyService.Get<ICustomToast>();
+            toast.Show(message);
+        }
+    }
+
+    public interface ICustomToast
+    {
+        void Show(string message);
     }
 }
 

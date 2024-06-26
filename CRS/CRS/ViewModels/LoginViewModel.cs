@@ -37,9 +37,20 @@ namespace CRS.ViewModels
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             ShowLoading = true;
-            var account = await ApiClient.PostDataAsync<Account>(ApiUrl.Login, new { _id = UserName, Password = PassWord });
-            await Utilities.Utilities.SaveTokenAsync(account.Token);
-            await Shell.Current.GoToAsync($"//{nameof(RatingPage)}");
+            try
+            {
+                var account = await ApiClient.PostDataAsync<Account>(ApiUrl.Login, new { _id = UserName, Password = PassWord });
+                await Utilities.Utilities.SaveTokenAsync(account.Token);
+                await Shell.Current.GoToAsync($"//{nameof(RatingPage)}");
+            }
+            catch (MyException ex)
+            {
+                Toast(ex.Msg);
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
             ShowLoading = false;
         }
     }

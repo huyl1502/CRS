@@ -23,8 +23,7 @@ namespace CRS.Views
 
         public ReasonPage() 
         {
-            InitializeComponent();
-            this.BindingContext = new ReasonViewModel();
+            
         }
 
         public void ApplyQueryAttributes(IDictionary<string, string> query)
@@ -38,6 +37,10 @@ namespace CRS.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            InitializeComponent();
+            this.BindingContext = new ReasonViewModel();
+
             Color primaryColor = (Color)Application.Current.Resources["Primary"];
             var reasonConfig = new ReasonConfigService();
 

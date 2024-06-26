@@ -47,27 +47,6 @@ namespace CRS.Utilities
                 return null;
             }
         }
-
-        public static T TryDeserialize<T>(string json)
-        {
-            try
-            {
-                var firstTypeObject = JsonConvert.DeserializeObject<DataContext<T>>(json);
-                return firstTypeObject.Value;
-            }
-            catch (Exception) 
-            {
-                try
-                {
-                    var errorObject = JsonConvert.DeserializeObject<ErrorResponse>(json);
-                    throw new Exception(errorObject.Message);
-                }
-                catch (Exception)
-                {
-                    throw new InvalidOperationException("Deserialization to both types failed.");
-                }
-            }
-        }
     }
 }
 
