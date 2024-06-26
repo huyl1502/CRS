@@ -9,53 +9,56 @@
              ControlTemplate="{StaticResource BaseTemplate}"
              mc:Ignorable="d"
              x:Class="CRS.Views.ReasonPage">
-    <StackLayout Padding="20, 10" BackgroundColor="#f7f7f7">
-        <material3:MaterialCard
-                    BackgroundColor="White"
-                    Type="Filled">
-            <StackLayout>
-                <material3:MaterialLabel
-                    Type="HeadlineLarge"
-                    TextColor="{StaticResource Primary}"
-                    HorizontalTextAlignment="Center"
-                    Text="Thông tin người đánh giá" />
-                <material3:MaterialEntry
-                    BackgroundColor="White"
-                    FocusedBackgroundColor="White"
-                    FocusedLabelTextColor="{StaticResource Primary}"
-                    Margin="0,15,0,15"
-                    LabelText="Họ tên"
-                    MaxLength="50"
-                    Text="{Binding Name}"
-                    TabIndex="1"
-                    ReturnType="Next" />
-                <material3:MaterialEntry
-                    BackgroundColor="White"
-                    FocusedBackgroundColor="White"
-                    FocusedLabelTextColor="#4A6572"
-                    Margin="0,15,0,15"
-                    LabelText="Số điện thoại"
-                    MaxLength="50"
-                    Text="{Binding PhoneNumber}"
-                    TabIndex="1"
-                    ReturnType="Next" />
-            </StackLayout>
-        </material3:MaterialCard>
-        <material3:MaterialCard
-                    BackgroundColor="White"
-                    Type="Filled">
-            <StackLayout>
-                <material3:MaterialLabel
-                    Type="HeadlineLarge"
-                    TextColor="{StaticResource Primary}"
-                    HorizontalTextAlignment="Center"
-                    Text="Lý do" />
-                <StackLayout x:Name="MainContent"/>
-            </StackLayout>
-        </material3:MaterialCard>
-        <material3:MaterialButton
-                    Text="Gửi" 
-                    Command="{Binding SendCommand}"
-                    BackgroundColor="{StaticResource Primary}" />
-    </StackLayout>
+    <ScrollView>
+        <StackLayout Padding="20, 10" BackgroundColor="#f7f7f7">
+            <material3:MaterialCard
+                BackgroundColor="White"
+                Type="Filled">
+                <StackLayout>
+                    <material3:MaterialLabel
+                        Type="HeadlineSmall"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
+                        Text="Thông tin người đánh giá" />
+                    <material3:MaterialEntry
+                        BackgroundColor="White"
+                        FocusedBackgroundColor="White"
+                        FocusedLabelTextColor="{StaticResource Primary}"
+                        LabelText="Họ tên"
+                        MaxLength="50"
+                        Text="{Binding Name}"
+                        TabIndex="1"
+                        ReturnType="Next" />
+                    <material3:MaterialEntry
+                        BackgroundColor="White"
+                        FocusedBackgroundColor="White"
+                        FocusedLabelTextColor="#4A6572"
+                        LabelText="Số điện thoại"
+                        MaxLength="50"
+                        Text="{Binding PhoneNumber}"
+                        TabIndex="1"
+                        ReturnType="Next" />
+                </StackLayout>
+            </material3:MaterialCard>
+            <material3:MaterialCard
+                Margin="0, 5"
+                BackgroundColor="White"
+                Type="Filled">
+                <StackLayout>
+                    <material3:MaterialLabel
+                        Type="HeadlineSmall"
+                        TextColor="{StaticResource Primary}"
+                        HorizontalTextAlignment="Center"
+                        Text="Lý do" />
+                    <StackLayout>
+                        <StackLayout x:Name="MainContent"/>
+                    </StackLayout>
+                </StackLayout>
+            </material3:MaterialCard>
+            <material3:MaterialButton
+                Text="Gửi" 
+                Command="{Binding SendCommand}"
+                BackgroundColor="{StaticResource Primary}" />
+        </StackLayout>
+    </ScrollView>
 </local:BasePage>

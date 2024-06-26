@@ -36,7 +36,7 @@
                    <AbsoluteLayout Padding = "0"
                                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
                                    AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All"
-                                   IsVisible="{TemplateBinding RootViewModel.ShowLoading}">
+                                   IsVisible="{TemplateBinding RootViewModel.IsShowLoading}">
                         <Frame AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Background="#4A6572" Opacity="0.15"/>
                         <material3:MaterialProgressIndicator Type="Circular" Scale="0.5"
                                      IndicatorColor="{StaticResource LoadingIndicatorColor}"

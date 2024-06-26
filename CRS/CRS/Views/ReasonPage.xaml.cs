@@ -21,22 +21,11 @@ namespace CRS.Views
             set { ratingPoint = value; }
         }
 
-        public ReasonPage() 
-        {
-            
-        }
+        public ReasonPage() { }
 
-        public void ApplyQueryAttributes(IDictionary<string, string> query)
+        public ReasonPage(IDictionary<string, string> query) 
         {
-            if (query.ContainsKey(nameof(RatingPoint)))
-            {
-                RatingPoint = int.Parse(query[nameof(RatingPoint)]);
-            }
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+            ApplyQueryAttributes(query);
 
             InitializeComponent();
             this.BindingContext = new ReasonViewModel();
@@ -56,6 +45,14 @@ namespace CRS.Views
                 }).ToList();
 
             lstReasonCheckBox.ForEach(checkBox => MainContent.Children.Add(checkBox));
+        }
+
+        public void ApplyQueryAttributes(IDictionary<string, string> query)
+        {
+            if (query.ContainsKey(nameof(RatingPoint)))
+            {
+                RatingPoint = int.Parse(query[nameof(RatingPoint)]);
+            }
         }
     }
 }

@@ -57,7 +57,8 @@ namespace CRS.Views.Components
             ReloadListRating();
             var selectedItem = ((MyRatingIcon)sender);
             selectedItem.IsSelected = true;
-            await Shell.Current.GoToAsync($"{nameof(ReasonPage)}?{nameof(ReasonPage.RatingPoint)}={selectedItem.Point}");
+            await Navigation.PushAsync(new ReasonPage(new Dictionary<string, string> { { nameof(ReasonPage.RatingPoint), selectedItem.Point.ToString() } }));
+            //await Shell.Current.GoToAsync($"{nameof(ReasonPage)}?{nameof(ReasonPage.RatingPoint)}={selectedItem.Point}");
             ShowLoading = false;
         }
 

@@ -37,11 +37,11 @@ namespace CRS.ViewModels
         private async void OnSubmitClicked(object obj)
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            ShowLoading = true;
+            ShowLoading();
             var lstAddress = Utilities.Utilities.GetMacAddress();
             var token = Utilities.Utilities.GetTokenAsync().Result;
             await Task.Delay(3000);
-            ShowLoading = false;
+            HideLoading();
             Toast("Đánh giá của quý khách đã được ghi nhận");
             await Task.Delay(3000);
             await Shell.Current.GoToAsync($"//{nameof(RatingPage)}");

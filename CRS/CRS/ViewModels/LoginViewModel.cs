@@ -36,7 +36,7 @@ namespace CRS.ViewModels
         private async void OnLoginClicked(object obj)
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            ShowLoading = true;
+            ShowLoading();
             try
             {
                 var account = await ApiClient.PostDataAsync<Account>(ApiUrl.Login, new { _id = UserName, Password = PassWord });
@@ -51,7 +51,7 @@ namespace CRS.ViewModels
             {
                 Toast(ex.Message);
             }
-            ShowLoading = false;
+            HideLoading();
         }
     }
 }

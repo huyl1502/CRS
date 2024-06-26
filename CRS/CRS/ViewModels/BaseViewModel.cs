@@ -19,11 +19,11 @@ namespace CRS.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
-        bool showLoading = false;
-        public bool ShowLoading
+        bool isShowLoading = false;
+        public bool IsShowLoading
         {
-            get { return showLoading; }
-            set { SetProperty(ref showLoading, value); }
+            get { return isShowLoading; }
+            set { SetProperty(ref isShowLoading, value); }
         }
 
         string title = string.Empty;
@@ -57,6 +57,9 @@ namespace CRS.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+        public void ShowLoading() => IsShowLoading = true;
+        public void HideLoading() => IsShowLoading = false;
 
         public void Toast(string message)
         {

@@ -3,9 +3,7 @@
     android:orientation="horizontal"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="#404040"> <!-- Set your desired background color here -->
-
+    android:padding="10dp">
     <TextView
         android:id="@+id/toast_text"
         android:layout_width="wrap_content"
